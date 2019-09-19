@@ -14,6 +14,7 @@ import org.eclipse.jetty.servlet.ServletHolder;
 
 public class WebServer {
 
+  
   public WebServer() throws Exception {
 
     Server server = new Server(portNumberToUse());

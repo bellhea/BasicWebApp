@@ -1,5 +1,9 @@
 package com.develogical;
 
+import com.sun.xml.internal.xsom.impl.scd.Iterators;
+
+import java.util.Arrays;
+
 public class QueryProcessor {
 
     public String process(String query) {
@@ -10,6 +14,14 @@ public class QueryProcessor {
         }
         else if (query.toLowerCase().contains("name")) {
             return "shielded-cliffs";
+        }
+        if (query.toLowerCase().contains("number")) {
+            String[] string_num = query.split("%");
+            String second_last = string_num[string_num.length-2];
+            second_last = second_last.replace(",", "");
+            String last = string_num[string_num.length-1];
+            int result = Math.max(Integer.parseInt(second_last), Integer.parseInt(last));
+            return "" + result;
         }
         return "";
     }

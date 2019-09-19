@@ -29,4 +29,10 @@ public class QueryProcessorTest {
     public void myNameIsShieldedCliffs() throws Exception {
         assertThat(queryProcessor.process("name?"), containsString("shielded-cliffs"));
     }
+
+    @Test
+    public void largestNum() throws Exception {
+        assertThat(queryProcessor.process("20which%20of%20the%20following%20numbers%20is%20the%20largest:%20400,%2061"), is("20400"));
+    }
+
 }

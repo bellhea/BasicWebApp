@@ -13,11 +13,14 @@ public class QueryProcessor {
             return "shielded-cliffs";
         }
         if (query.toLowerCase().contains("number")) {
-            String[] string_num = query.split(" ");
-            String second_last = string_num[string_num.length-2];
-            second_last = second_last.replace(",", "");
-            String last = string_num[string_num.length-1];
-            int result = Math.max(Integer.parseInt(second_last), Integer.parseInt(last));
+            query = query.replace(" ", "");
+            String[] string_split = query.split(":");
+            String third = string_split[string_split.length-1];
+            String[] comma = third.split(",");
+            String first = comma[0];
+            // first = first.replace(",", "");
+            String last = comma[1];
+            int result = Math.max(Integer.parseInt(first), Integer.parseInt(last));
             return "" + result;
         }
         return "";

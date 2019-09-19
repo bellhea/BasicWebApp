@@ -1,6 +1,8 @@
 package com.develogical;
 
 
+import java.lang.reflect.Array;
+
 public class QueryProcessor {
 
     public String process(String query) {
@@ -25,16 +27,19 @@ public class QueryProcessor {
             // first = first.replace(",", "");
             return "" + max;
         }
-//        if (query.toLowerCase().contains("multiplied")) {
-//            query = query.replace(" ", "");
-//            query = query.replaceAll("\\D+","");
-//            String[] string_split = query.split(":");
-//            String third = string_split[string_split.length-1];
-//            String[] comma = third.split("by");
+        if (query.toLowerCase().contains("multiplied")) {
+            String[] query_split = query.split("multiplied by");
+            String last_num = query_split[query_split.length-1].replace(" ", "");
+            String[] second_split  = query_split[0].split("is");
+            String first_num = second_split[1].replace(" ", "");
+//            query = query.replaceAll("\\D+"," ");
 //
-//            // first = first.replace(",", "");
-//            return "" + max;
-//        }
+//            String third = string_split[string_split.length-1];
+//
+//            String[] new_q = third.split(" ");
+            Integer result = Integer.parseInt(first_num) * Integer.parseInt(last_num);
+            return "" + result;
+        }
         if (query.toLowerCase().contains("banana")) {
             return "yellow";
         }

@@ -12,6 +12,7 @@ public class QueryProcessor {
         else if (query.toLowerCase().contains("name")) {
             return "shielded-cliffs";
         }
+
         if (query.toLowerCase().contains("number")) {
             query = query.replace(" ", "");
             String[] string_split = query.split(":");
@@ -23,6 +24,19 @@ public class QueryProcessor {
             }
             // first = first.replace(",", "");
             return "" + max;
+        }
+//        if (query.toLowerCase().contains("multiplied")) {
+//            query = query.replace(" ", "");
+//            query = query.replaceAll("\\D+","");
+//            String[] string_split = query.split(":");
+//            String third = string_split[string_split.length-1];
+//            String[] comma = third.split("by");
+//
+//            // first = first.replace(",", "");
+//            return "" + max;
+//        }
+        if (query.toLowerCase().contains("banana")) {
+            return "yellow";
         }
         return "";
     }

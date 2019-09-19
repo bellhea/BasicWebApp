@@ -13,7 +13,7 @@ public class QueryProcessor {
             return "shielded-cliffs";
         }
         if (query.toLowerCase().contains("number")) {
-            String[] string_num = query.split("%");
+            String[] string_num = query.split(" ");
             String second_last = string_num[string_num.length-2];
             second_last = second_last.replace(",", "");
             String last = string_num[string_num.length-1];

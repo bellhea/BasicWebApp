@@ -17,11 +17,12 @@ public class QueryProcessor {
             String[] string_split = query.split(":");
             String third = string_split[string_split.length-1];
             String[] comma = third.split(",");
-            String first = comma[0];
+            int max = 0;
+            for (int i = 0; i < comma.length; i++) {
+                if (Integer.parseInt(comma[i]) > max) max = Integer.parseInt(comma[i]);
+            }
             // first = first.replace(",", "");
-            String last = comma[1];
-            int result = Math.max(Integer.parseInt(first), Integer.parseInt(last));
-            return "" + result;
+            return "" + max;
         }
         return "";
     }
